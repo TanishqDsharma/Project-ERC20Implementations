@@ -34,3 +34,14 @@ constructor(string memory name_, string memory symbol_) {
 **Impact:** On deployment, _totalSupply will be 0, and _balances for all addresses will be 0. The token will be non-functional as no tokens exist to be transferred.
 
 **Mitigation:** Initialize the totalSupply in constructor or call _mint inside constructor to mint some supply of the tokens.
+
+
+# Medium
+
+### [M-1] Missing External Mint and Burn Functions (Fixed Supply after Deployment):
+
+**Description:** The _mint and _burn functions are declared as internal. There are no public or external functions that call these internal functions.
+
+**Impact:** Even if the token had an initial supply, there's no way to mint new tokens or burn existing ones after deployment. The token supply would be fixed (at zero in this case), which might not be the intended behavior for a mutable token
+
+
