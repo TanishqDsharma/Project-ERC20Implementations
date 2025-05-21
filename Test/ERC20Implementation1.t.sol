@@ -27,6 +27,7 @@ address user = makeAddr("user");
         assertEq(erc20Implementation1.decimals(),18);
     }
 
+    // This test confirm that totalSupply will always be zero as its not initialzed in the constructor.
     function testTotalSupply() public{
         assertEq(erc20Implementation1.totalSupply(),0);
     }
